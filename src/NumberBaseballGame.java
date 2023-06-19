@@ -6,8 +6,8 @@ public class NumberBaseballGame {
         Random rand = new Random();
         Scanner scanner = new Scanner(System.in);
 
-        int[] computerNumbers = new int[3];
-        for (int i = 0; i < 3; i++) {
+        int[] computerNumbers = new int[4];
+        for (int i = 0; i < 4; i++) {
             computerNumbers[i] = rand.nextInt(9) + 1; // Generates a number between 1 and 9.
             for (int j = 0; j < i; j++) { // Make sure there are no duplicate numbers.
                 if (computerNumbers[i] == computerNumbers[j]) {
@@ -18,9 +18,9 @@ public class NumberBaseballGame {
         }
 
         while (true) {
-            System.out.println("Please enter three numbers:");
-            int[] playerNumbers = new int[3];
-            for (int i = 0; i < 3; i++) {
+            System.out.println("Please enter four numbers:");
+            int[] playerNumbers = new int[4];
+            for (int i = 0; i < 4; i++) {
                 try {
                     playerNumbers[i] = readValidInput(scanner);
                 } catch (NumberFormatException e) {
@@ -32,8 +32,8 @@ public class NumberBaseballGame {
             int strike = 0;
             int ball = 0;
 
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
                     if (playerNumbers[i] == computerNumbers[j]) {
                         if (i == j) {
                             strike++;
@@ -44,7 +44,7 @@ public class NumberBaseballGame {
                 }
             }
 
-            if (strike == 3) {
+            if (strike == 4) {
                 System.out.println("Congratulations! You got all the numbers right!");
                 break;
             } else {
